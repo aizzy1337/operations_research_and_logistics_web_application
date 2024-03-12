@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom"
+import { Box, Button, Typography } from "@mui/material";
+import FormCpm from "./Form";
 
 function Cpm() {
-    return (
-        <>
-            CPM <br />
-            <Link to="/">Home link</Link>
-        </>
-    )
+
+  return (
+    <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+      <Button
+        href="/"
+        variant="contained"
+        sx={{ backgroundColor: "black", m: 1 }}
+      >
+        Home
+      </Button>
+
+      <Typography
+        sx={{ fontSize: 35, textTransform: "uppercase", fontWeight: "bold" }}
+      >
+        Input data
+      </Typography>
+
+      <FormCpm />
+    </Box>
+  );
 }
 
-export default Cpm
+export default Cpm;
