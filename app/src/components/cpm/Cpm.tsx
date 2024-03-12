@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import FormCpm from "./Form";
+import FormCpm from "./FormCpm";
 
 function Cpm() {
 
