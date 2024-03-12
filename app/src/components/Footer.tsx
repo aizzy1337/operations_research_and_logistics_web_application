@@ -1,6 +1,8 @@
+import { theme } from "../theme";
+
 function Footer() {
     return (
-        <div style={{ backgroundColor: "#111111",
+        <div style={{ backgroundColor: theme.palette.grey[900],
                     position: "fixed",
                     bottom: 0,
                     width: "100%",
