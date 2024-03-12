@@ -2,9 +2,13 @@ import { AppBar, Box, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import CustomTabPanel from "./CustomTabPanel";
 import V1Form from "./V1Form";
+import Activity from "../../interfaces/Activity";
 
+interface props {
+  handleSubmit: (a: Activity[]) => void
+}
 
-const FormCpm = () => {
+const FormCpm = ({handleSubmit}: props) => {
   const [value, setValue] = useState(0);
 
   const handleChage = (e: unknown, newValue: number) => {
@@ -27,7 +31,7 @@ const FormCpm = () => {
         </Tabs>
       </AppBar>
       <CustomTabPanel value={value} index={0}>
-        <V1Form />
+        <V1Form handleSubmit={handleSubmit}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         From 2

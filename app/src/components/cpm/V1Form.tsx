@@ -13,11 +13,12 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-const V1Form = () => {
+interface props {
+  handleSubmit: (a: Activity[]) => void;
+}
+const V1Form = ({ handleSubmit }: props) => {
   const [activities, setActivities] = useState<Activity[]>([
-    { name: "A", previousActivities: [], time: 1 },
-    { name: "B", previousActivities: [], time: 2 },
-    { name: "C", previousActivities: [], time: 5 },
+    { name: "", previousActivities: [], time: 0 },
   ]);
 
   const handleNameInputChange = (index: number, e: any) => {
@@ -31,8 +32,6 @@ const V1Form = () => {
     data[index].previousActivities = e.target.value;
 
     setActivities(data);
-
-    console.log(data);
   };
 
   const handleTimeInputChange = (index: number, e: any) => {
@@ -69,7 +68,12 @@ const V1Form = () => {
         time: 0,
       },
     ]);
-  };
+    };
+    
+    const handleOnSubmit = (e: any) => {
+        e.preventDefault();
+        handleSubmit(activities);
+    }
 
   return (
     <>
@@ -157,7 +161,7 @@ const V1Form = () => {
         alignItems={"center"}
         sx={{ width: "100%" }}
       >
-        <Button variant="contained" sx={{ m: 2, p: 2 }}>
+        <Button onClick={e => handleOnSubmit(e)} variant="contained" sx={{ m: 2, p: 2 }}>
           Submit
         </Button>
         <Button
