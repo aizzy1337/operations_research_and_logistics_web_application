@@ -35,9 +35,11 @@ const V1Form = ({ handleSubmit }: props) => {
   };
 
   const handleTimeInputChange = (index: number, e: any) => {
-    let data = [...activities];
-    data[index].time = e.target.value;
-    setActivities(data);
+    if (e.target.value > 0) {
+      let data = [...activities];
+      data[index].time = e.target.value;
+      setActivities(data);
+    }
   };
 
   const handleAddActivity = (e: any) => {
@@ -68,12 +70,13 @@ const V1Form = ({ handleSubmit }: props) => {
         time: 0,
       },
     ]);
-    };
-    
-    const handleOnSubmit = (e: any) => {
-        e.preventDefault();
-        handleSubmit(activities);
-    }
+  };
+
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    handleClearForm();
+    handleSubmit(activities);
+  };
 
   return (
     <>
@@ -161,7 +164,11 @@ const V1Form = ({ handleSubmit }: props) => {
         alignItems={"center"}
         sx={{ width: "100%" }}
       >
-        <Button onClick={e => handleOnSubmit(e)} variant="contained" sx={{ m: 2, p: 2 }}>
+        <Button
+          onClick={(e) => handleOnSubmit(e)}
+          variant="contained"
+          sx={{ m: 2, p: 2 }}
+        >
           Submit
         </Button>
         <Button
