@@ -3,22 +3,26 @@ import { useState } from "react";
 import CustomTabPanel from "./CustomTabPanel";
 import V1Form from "./V1Form";
 import Activity from "../../interfaces/Activity";
+import { theme } from "../../theme";
 
 interface props {
-  handleSubmit: (a: Activity[]) => void
+  handleSubmit: (a: Activity[]) => void;
 }
 
-const FormCpm = ({handleSubmit}: props) => {
+const FormCpm = ({ handleSubmit }: props) => {
   const [value, setValue] = useState(0);
 
   const handleChage = (e: unknown, newValue: number) => {
     setValue(newValue);
   };
 
-
   return (
-    <Box sx={{ border: 1, borderColor: 'gray', width: "90vw"}}>
-      <AppBar position="static" color="transparent">
+    <Box sx={{ width: "90vw" }}>
+      <AppBar
+        position="static"
+        color="transparent"
+        sx={{ backgroundColor: theme.palette.grey[900], borderRadius: 2 }}
+      >
         <Tabs
           value={value}
           indicatorColor="primary"
@@ -30,9 +34,11 @@ const FormCpm = ({handleSubmit}: props) => {
           <Tab label="V2" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
+
       <CustomTabPanel value={value} index={0}>
-        <V1Form handleSubmit={handleSubmit}/>
+        <V1Form handleSubmit={handleSubmit} />
       </CustomTabPanel>
+
       <CustomTabPanel value={value} index={1}>
         From 2
       </CustomTabPanel>
@@ -45,6 +51,6 @@ export default FormCpm;
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`
-  }
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
 }
