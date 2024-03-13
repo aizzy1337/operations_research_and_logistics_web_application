@@ -1,5 +1,4 @@
-import { Box, Button, Paper, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button, Typography } from "@mui/material";
 
 function Home() {
   return (
@@ -28,27 +27,25 @@ function Home() {
         href="cpm"
         variant="contained"
         sx={{
-          bgcolor: "#111111",
           width: "20vw",
           textAlign: "center",
           padding: 5,
         }}
       >
-        CPM Link
+        CPM
       </Button>
-      <br />
 
-      <Paper
-        elevation={3}
+      <Button
+        href="posrednik"
+        variant="contained"
         sx={{
-          bgcolor: "#111111",
           width: "20vw",
           textAlign: "center",
           padding: 5,
         }}
       >
-        <Link to="posrednik">Posrednik Link</Link>
-      </Paper>
+        Posrednik
+      </Button>
     </Box>
   );
 }
