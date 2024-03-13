@@ -1,13 +1,19 @@
 import { Box, Typography } from "@mui/material";
-import Activity from "../../interfaces/Activity";
+import ActivityV1 from "../../interfaces/Activity";
 import FormCpm from "./FormCpm";
+import ActivityV2 from "../../interfaces/ActivityV2";
+import isActivityV1 from "../../interfaces/checkInterface";
 
 function Cpm() {
 
-  const handleFormSubmit = (a: Activity[]) => {
+  const handleFormSubmit = (a: ActivityV1[] | ActivityV2[]) => {
     console.log("a", a);
     // wywołanie algorytmu
-    console.log('algorithm');
+    if (isActivityV1(a[0])) {
+      console.log('algorithmV1');
+    } else {
+      console.log("algorithmV2");
+    }
   }
 
   return (

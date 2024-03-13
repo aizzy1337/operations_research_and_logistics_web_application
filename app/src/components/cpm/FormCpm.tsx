@@ -2,11 +2,13 @@ import { AppBar, Box, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import CustomTabPanel from "./CustomTabPanel";
 import V1Form from "./V1Form";
-import Activity from "../../interfaces/Activity";
+import ActivityV1 from "../../interfaces/Activity";
 import { theme } from "../../theme";
+import V2Form from "./V2Form";
+import ActivityV2 from "../../interfaces/ActivityV2";
 
 interface props {
-  handleSubmit: (a: Activity[]) => void;
+  handleSubmit: (a: ActivityV1[] | ActivityV2[]) => void;
 }
 
 const FormCpm = ({ handleSubmit }: props) => {
@@ -40,7 +42,7 @@ const FormCpm = ({ handleSubmit }: props) => {
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-        From 2
+        <V2Form handleSubmit={handleSubmit} />
       </CustomTabPanel>
     </Box>
   );
