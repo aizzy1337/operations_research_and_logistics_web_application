@@ -5,9 +5,10 @@ import V1Form from "./V1Form";
 import ActivityV1 from "../../interfaces/Activity";
 import { theme } from "../../theme";
 import V2Form from "./V2Form";
+import ActivityV2 from "../../interfaces/ActivityV2";
 
 interface props {
-  handleSubmit: (a: ActivityV1[]) => void;
+  handleSubmit: (a: ActivityV1[] | ActivityV2[]) => void;
 }
 
 const FormCpm = ({ handleSubmit }: props) => {
@@ -41,7 +42,7 @@ const FormCpm = ({ handleSubmit }: props) => {
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-        <V2Form />
+        <V2Form handleSubmit={handleSubmit} />
       </CustomTabPanel>
     </Box>
   );

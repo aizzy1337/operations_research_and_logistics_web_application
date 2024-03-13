@@ -5,8 +5,11 @@ import ActivityV2 from "../../interfaces/ActivityV2";
 import TextMask from "./TextMask";
 import AddIcon from "@mui/icons-material/Add";
 
+interface props {
+  handleSubmit: (a: ActivityV2[]) => void;
+}
 
-const V2Form = () => {
+const V2Form = ({handleSubmit}: props) => {
   const [activities, setActivities] = useState<ActivityV2[]>([
     { name: "", afterEffect: [0, 0], time: 0 },
   ]);
@@ -86,6 +89,14 @@ const V2Form = () => {
         time: 0,
       },
     ]);
+
+    setAfterEffect([""]);
+  };
+
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    handleClearForm();
+    handleSubmit(activities);
   };
 
   return (
@@ -160,7 +171,7 @@ const V2Form = () => {
         sx={{ width: "100%" }}
       >
         <Button
-          // onClick={(e) => handleOnSubmit(e)}
+          onClick={(e) => handleOnSubmit(e)}
           variant="contained"
           sx={{ m: 2, p: 2 }}
         >
