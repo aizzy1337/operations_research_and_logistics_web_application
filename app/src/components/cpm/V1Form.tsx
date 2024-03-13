@@ -35,7 +35,7 @@ const V1Form = ({ handleSubmit }: props) => {
   };
 
   const handleTimeInputChange = (index: number, e: any) => {
-    if (e.target.value > 0) {
+    if (e.target.value > -1) {
       let data = [...activities];
       data[index].time = e.target.value;
       setActivities(data);
@@ -130,8 +130,8 @@ const V1Form = ({ handleSubmit }: props) => {
             <TextField
               variant="outlined"
               label="Time"
-              value={input.time}
               autoComplete="off"
+              value={input.time === 0 ? "" : input.time}
               onChange={(e) => handleTimeInputChange(index, e)}
               type="number"
               sx={{ m: 1 }}
