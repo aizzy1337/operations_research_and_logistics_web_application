@@ -4,6 +4,7 @@ import CustomTabPanel from "./CustomTabPanel";
 import V1Form from "./V1Form";
 import Activity from "../../interfaces/Activity";
 import { theme } from "../../theme";
+import V2Form from "./V2Form";
 
 interface props {
   handleSubmit: (a: Activity[]) => void;
@@ -40,7 +41,7 @@ const FormCpm = ({ handleSubmit }: props) => {
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-        From 2
+        <V2Form />
       </CustomTabPanel>
     </Box>
   );
