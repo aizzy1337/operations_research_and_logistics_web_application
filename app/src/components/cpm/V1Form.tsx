@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Activity from "../../interfaces/Activity";
+import ActivityV1 from "../../interfaces/Activity";
 import {
   Box,
   InputLabel,
@@ -14,10 +14,10 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 interface props {
-  handleSubmit: (a: Activity[]) => void;
+  handleSubmit: (a: ActivityV1[]) => void;
 }
 const V1Form = ({ handleSubmit }: props) => {
-  const [activities, setActivities] = useState<Activity[]>([
+  const [activities, setActivities] = useState<ActivityV1[]>([
     { name: "", previousActivities: [], time: 0 },
   ]);
 
@@ -45,7 +45,7 @@ const V1Form = ({ handleSubmit }: props) => {
   const handleAddActivity = (e: any) => {
     e.preventDefault();
 
-    let newActivity: Activity = {
+    let newActivity: ActivityV1 = {
       name: "",
       previousActivities: [],
       time: 0,
