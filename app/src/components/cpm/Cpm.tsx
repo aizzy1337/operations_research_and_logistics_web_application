@@ -2,7 +2,8 @@ import { Box, Typography } from "@mui/material";
 import ActivityV1 from "../../interfaces/Activity";
 import FormCpm from "./FormCpm";
 import ActivityV2 from "../../interfaces/ActivityV2";
-import isActivityV1 from "../../interfaces/checkInterface";
+import isActivityV1 from "../../utils/checkInterface";
+import compute_critical_path_v1 from "../../utils/compute_critical_path_v1";
 
 function Cpm() {
 
@@ -10,7 +11,7 @@ function Cpm() {
     console.log("a", a);
     // wywołanie algorytmu
     if (isActivityV1(a[0])) {
-      console.log('algorithmV1');
+      compute_critical_path_v1(a as ActivityV1[]);
     } else {
       console.log("algorithmV2");
     }
