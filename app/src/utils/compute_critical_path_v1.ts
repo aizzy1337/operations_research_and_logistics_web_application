@@ -1,13 +1,17 @@
 import ActivityV1 from "../interfaces/Activity";
 import CriticalPath from "../interfaces/CriticalPath";
 import CriticalPathNode from "../interfaces/CriticalPathNode";
+import compute_critical_path from "./compute_critical_path";
 
-function compute_critical_path_v1( activities: ActivityV1[] ) {
+function compute_critical_path_v1( activities: ActivityV1[] ): CriticalPath {
 
     //prepare connections between nodes
     var nodes: CriticalPathNode[] = prepareConnections(activities);
 
-    //calculate values
+    //compute critical path
+    var criticalPath: CriticalPath = compute_critical_path(nodes, activities);
+
+    return criticalPath;
 
 }
 
@@ -34,10 +38,8 @@ function prepareConnections( activities: ActivityV1[] ): CriticalPathNode[] {
         
         let emptyNode: CriticalPathNode = {
             id: i,
-            early_start: 0,
-            early_finish: 0,
-            late_start: 0,
-            late_finish: 0,
+            t0: 0,
+            t1: Number.MAX_VALUE,
             reserve: 0,
             isCritical: false,
             innerActivities: [],
@@ -114,10 +116,6 @@ function prepareConnections( activities: ActivityV1[] ): CriticalPathNode[] {
 
         }
 
-    })
-
-    nodes.forEach( (node) => {
-        console.log(node);
     })
 
     return nodes;

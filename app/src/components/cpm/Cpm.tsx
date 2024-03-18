@@ -4,6 +4,7 @@ import FormCpm from "./FormCpm";
 import ActivityV2 from "../../interfaces/ActivityV2";
 import isActivityV1 from "../../utils/checkInterface";
 import compute_critical_path_v1 from "../../utils/compute_critical_path_v1";
+import compute_critical_path_v2 from "../../utils/compute_critical_path_v2";
 
 function Cpm() {
 
@@ -13,7 +14,7 @@ function Cpm() {
     if (isActivityV1(a[0])) {
       compute_critical_path_v1(a as ActivityV1[]);
     } else {
-      console.log("algorithmV2");
+      compute_critical_path_v2(a as ActivityV2[]);
     }
   }
 
