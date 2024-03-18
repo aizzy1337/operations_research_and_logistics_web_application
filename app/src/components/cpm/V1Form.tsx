@@ -74,7 +74,7 @@ const V1Form = ({ handleSubmit }: props) => {
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
-    handleClearForm();
+    //handleClearForm();
     handleSubmit(activities);
   };
 
