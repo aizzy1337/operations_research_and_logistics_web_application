@@ -10,6 +10,7 @@ import LoadGraph from "./LoadGraph";
 import CriticalPath from "../../interfaces/CriticalPath";
 import "@react-sigma/core/lib/react-sigma.min.css";
 import { useState } from "react";
+import GraphEvents from "./GraphEvents";
 
 function Cpm() {
   const [nodes, setNodes] = useState<CriticalPath>({
@@ -51,6 +52,7 @@ function Cpm() {
       {isSubmitted && (
         <SigmaContainer style={{ height: "600px", width: "1000px" }}>
           <LoadGraph nodes={nodes} />
+          <GraphEvents />
         </SigmaContainer>
       )}
     </Box>
