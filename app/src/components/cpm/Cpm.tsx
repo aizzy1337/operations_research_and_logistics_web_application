@@ -6,25 +6,32 @@ import isActivityV1 from "../../utils/checkInterface";
 import compute_critical_path_v1 from "../../utils/compute_critical_path_v1";
 import compute_critical_path_v2 from "../../utils/compute_critical_path_v2";
 import { SigmaContainer } from "@react-sigma/core";
-import LoadGraph from "./Graph";
+import LoadGraph from "./LoadGraph";
 import CriticalPath from "../../interfaces/CriticalPath";
 import "@react-sigma/core/lib/react-sigma.min.css";
+import { useState } from "react";
 
 function Cpm() {
+  const [nodes, setNodes] = useState<CriticalPath>({
+    nodes: [],
+    activites: [],
+    criticalNodes: [],
+    criticalActivites: [],
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleFormSubmit = (a: ActivityV1[] | ActivityV2[]) => {
     // wywołanie algorytmu
 
-    let nodes:CriticalPath;
-
     if (isActivityV1(a[0])) {
-      nodes = compute_critical_path_v1(a as ActivityV1[]);
+      setNodes(compute_critical_path_v1(a as ActivityV1[]));
     } else {
-      nodes = compute_critical_path_v2(a as ActivityV2[]);
+      setNodes(compute_critical_path_v2(a as ActivityV2[]));
     }
 
-    console.log("nodes", nodes)
-  }
+    setIsSubmitted(true);
+    console.log("nodes", nodes);
+  };
 
   return (
     <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
@@ -41,9 +48,11 @@ function Cpm() {
 
       <FormCpm handleSubmit={handleFormSubmit} />
 
-      <SigmaContainer style={{ height: "600px", width: "1000px" }}>
-        <LoadGraph />
-      </SigmaContainer>
+      {isSubmitted && (
+        <SigmaContainer style={{ height: "600px", width: "1000px" }}>
+          <LoadGraph nodes={nodes} />
+        </SigmaContainer>
+      )}
     </Box>
   );
 }

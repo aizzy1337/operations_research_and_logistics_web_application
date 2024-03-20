@@ -3,16 +3,25 @@ import CriticalPath from "../../interfaces/CriticalPath";
 import { useEffect } from "react";
 import Graph from "graphology";
 
-interface props {
+interface Props {
   nodes: CriticalPath;
 }
 
-const LoadGraph = () => {
+const LoadGraph = ({ nodes }: Props) => {
   const loadGraph = useLoadGraph();
 
   useEffect(() => {
     const graph: Graph = new Graph();
-    
+
+    nodes.nodes.map((input, index) => {
+      graph.addNode(index, {
+        x: Math.random(),
+        y: Math.random(),
+        label: input.id + 1,
+        size: 20,
+        color: nodes.criticalNodes.includes(index) ? "#bd090c" : "#0328fc",
+      });
+    });
 
     loadGraph(graph);
   }, [loadGraph]);
