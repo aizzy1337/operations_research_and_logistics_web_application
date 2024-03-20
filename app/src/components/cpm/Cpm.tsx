@@ -9,7 +9,7 @@ import { SigmaContainer } from "@react-sigma/core";
 import LoadGraph from "./LoadGraph";
 import CriticalPath from "../../interfaces/CriticalPath";
 import "@react-sigma/core/lib/react-sigma.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GraphEvents from "./GraphEvents";
 
 function Cpm() {
@@ -50,7 +50,14 @@ function Cpm() {
       <FormCpm handleSubmit={handleFormSubmit} />
 
       {isSubmitted && (
-        <SigmaContainer style={{ height: "600px", width: "1000px" }}>
+        <SigmaContainer
+          style={{ height: "600px", width: "1000px" }}
+          settings={{
+            defaultEdgeType: "arrow",
+            edgeLabelSize: 16,
+            renderEdgeLabels: true,
+          }}
+        >
           <LoadGraph nodes={nodes} />
           <GraphEvents />
         </SigmaContainer>
