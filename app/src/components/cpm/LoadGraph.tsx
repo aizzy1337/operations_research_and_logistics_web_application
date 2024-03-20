@@ -48,8 +48,8 @@ const LoadGraph = ({ nodes }: Props) => {
         if (!isActivityV1(input)) {
           graph.addEdgeWithKey(
             index,
-            input.afterEffect[0] - 1,
-            input.afterEffect[1] - 1,
+            input.afterEffect[0],
+            input.afterEffect[1],
             {
               label: `${input.name} | time: ${input.time}`,
               color: nodes.criticalActivites.includes(index)
