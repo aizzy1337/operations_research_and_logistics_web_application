@@ -11,6 +11,7 @@ import CriticalPath from "../../interfaces/CriticalPath";
 import "@react-sigma/core/lib/react-sigma.min.css";
 import { useEffect, useState } from "react";
 import GraphEvents from "./GraphEvents";
+import { MultiDirectedGraph } from "graphology";
 
 function Cpm() {
   const [nodes, setNodes] = useState<CriticalPath>({
@@ -51,6 +52,7 @@ function Cpm() {
 
       {isSubmitted && (
         <SigmaContainer
+          graph={MultiDirectedGraph}
           style={{ height: "600px", width: "1000px" }}
           settings={{
             defaultEdgeType: "arrow",
