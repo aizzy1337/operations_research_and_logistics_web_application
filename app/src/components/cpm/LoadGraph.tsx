@@ -63,7 +63,7 @@ const LoadGraph = ({ nodes }: Props) => {
     }
 
     loadGraph(graph);
-  }, [loadGraph]);
+  }, [loadGraph, nodes]);
 
   return null;
 };

@@ -15,8 +15,9 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 interface props {
   handleSubmit: (a: ActivityV1[]) => void;
+  handleClear: () => void;
 }
-const V1Form = ({ handleSubmit }: props) => {
+const V1Form = ({ handleSubmit, handleClear }: props) => {
   const [activities, setActivities] = useState<ActivityV1[]>([
     { name: "", previousActivities: [], time: 0 },
   ]);
@@ -70,6 +71,8 @@ const V1Form = ({ handleSubmit }: props) => {
         time: 0,
       },
     ]);
+
+    handleClear();
   };
 
   const handleOnSubmit = (e: any) => {

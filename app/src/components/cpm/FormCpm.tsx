@@ -9,9 +9,10 @@ import ActivityV2 from "../../interfaces/ActivityV2";
 
 interface props {
   handleSubmit: (a: ActivityV1[] | ActivityV2[]) => void;
+  handleClear: () => void;
 }
 
-const FormCpm = ({ handleSubmit }: props) => {
+const FormCpm = ({ handleSubmit, handleClear }: props) => {
   const [value, setValue] = useState(0);
 
   const handleChage = (e: unknown, newValue: number) => {
@@ -38,11 +39,11 @@ const FormCpm = ({ handleSubmit }: props) => {
       </AppBar>
 
       <CustomTabPanel value={value} index={0}>
-        <V1Form handleSubmit={handleSubmit} />
+        <V1Form handleSubmit={handleSubmit} handleClear={handleClear} />
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={1}>
-        <V2Form handleSubmit={handleSubmit} />
+        <V2Form handleSubmit={handleSubmit} handleClear={handleClear} />
       </CustomTabPanel>
     </Box>
   );

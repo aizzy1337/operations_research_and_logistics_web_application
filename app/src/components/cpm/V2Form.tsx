@@ -7,9 +7,10 @@ import AddIcon from "@mui/icons-material/Add";
 
 interface props {
   handleSubmit: (a: ActivityV2[]) => void;
+  handleClear: () => void;
 }
 
-const V2Form = ({handleSubmit}: props) => {
+const V2Form = ({handleSubmit, handleClear }: props) => {
   const [activities, setActivities] = useState<ActivityV2[]>([
     { name: "", afterEffect: [0, 0], time: 0 },
   ]);
@@ -91,6 +92,8 @@ const V2Form = ({handleSubmit}: props) => {
     ]);
 
     setAfterEffect([""]);
+
+    handleClear();
   };
 
   const handleOnSubmit = (e: any) => {
