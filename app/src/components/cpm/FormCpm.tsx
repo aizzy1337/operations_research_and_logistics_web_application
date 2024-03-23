@@ -24,17 +24,17 @@ const FormCpm = ({ handleSubmit, handleClear }: props) => {
       <AppBar
         position="static"
         color="transparent"
-        sx={{ backgroundColor: theme.palette.grey[900], borderRadius: 2 }}
+        sx={{ backgroundColor: theme.palette.grey[900], borderRadius: 2, color: "whitesmoke" }}
       >
-        <Tabs
+        <Tabs sx={{color: "whitesmoke"}}
           value={value}
-          indicatorColor="primary"
-          textColor="inherit"
+          indicatorColor="secondary"
+          textColor="secondary"
           variant="fullWidth"
           onChange={handleChage}
         >
-          <Tab label="V1" {...a11yProps(0)} />
-          <Tab label="V2" {...a11yProps(1)} />
+          <Tab label="Previous activities" {...a11yProps(0)} />
+          <Tab label="Events indexes" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 

@@ -14,6 +14,7 @@ import GraphEvents from "./GraphEvents";
 import LoadGraph from "./LoadGraph";
 import { theme } from "../../theme";
 import CustomTabPanel from "./CustomTabPanel";
+import GanttCpm from "./GanttCpm";
 
 function Cpm() {
   const [nodes, setNodes] = useState<CriticalPath>({
@@ -47,7 +48,7 @@ function Cpm() {
   }
 
   return (
-    <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+    <Box display={"flex"} flexDirection={"column"} alignItems={"center"} marginBottom={"100px"}>
       <Typography
         sx={{
           fontSize: 35,
@@ -70,14 +71,14 @@ function Cpm() {
           >
             <Tabs
               value={value}
-              indicatorColor="primary"
-              textColor="inherit"
+              indicatorColor="secondary"
+              textColor="secondary"
               variant="fullWidth"
               onChange={handleChage}
             >
               <Tab label="Tabela" {...a11yProps(0)} />
               <Tab label="Graf" {...a11yProps(1)} />
-              <Tab label="Graf Gantta" {...a11yProps(2)} />
+              <Tab label="Wykres Gantta" {...a11yProps(2)} />
             </Tabs>
           </AppBar>
 
@@ -101,7 +102,7 @@ function Cpm() {
           </CustomTabPanel>
 
           <CustomTabPanel value={value} index={2}>
-            {"gantt"}
+            <GanttCpm nodes={nodes}/>
           </CustomTabPanel>
         </Box>
       )}
