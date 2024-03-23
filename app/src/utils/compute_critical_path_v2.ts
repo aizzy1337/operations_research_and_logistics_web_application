@@ -48,11 +48,11 @@ function prepareConnections( activities: ActivityV2[] ): CriticalPathNode[] {
 
         activities.forEach( (activity, activityIndex) => {
 
-            if(activity.afterEffect[0] == i) {
+            if(activity.afterEffect[0] === i) {
                 emptyNode.outerActivities.push(activityIndex);
             }
 
-            if(activity.afterEffect[1] == i) {
+            if(activity.afterEffect[1] === i) {
                 emptyNode.innerActivities.push(activityIndex);
             }
 

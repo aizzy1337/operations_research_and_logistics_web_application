@@ -5,6 +5,7 @@ function Home() {
     <Box
       sx={{
         display: "flex",
+        marginBottom: "40px",
         flexWrap: "wrap",
         "& > :not(style)": {
           m: 1,
@@ -20,7 +21,7 @@ function Home() {
           padding: 5,
         }}
       >
-        <Typography sx={{ fontSize: 36 }}>Home</Typography>
+        <Typography sx={{ fontSize: 36 }}>Choose a problem</Typography>
       </Box>
 
       <Button
@@ -32,7 +33,7 @@ function Home() {
           padding: 5,
         }}
       >
-        CPM
+        Critical Path Method
       </Button>
 
       <Button
@@ -44,7 +45,7 @@ function Home() {
           padding: 5,
         }}
       >
-        Posrednik
+        Zagadnienie Pośrednika
       </Button>
     </Box>
   );

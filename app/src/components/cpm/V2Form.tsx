@@ -126,7 +126,7 @@ const V2Form = ({handleSubmit, handleClear }: props) => {
             />
 
             <TextField
-              label="After effects"
+              label="Events indexes"
               value={afterEffect[index]}
               onChange={(e) => handleAfterEffect(index, e)}
               InputProps={{
