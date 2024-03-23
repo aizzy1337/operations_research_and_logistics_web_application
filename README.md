@@ -19,5 +19,6 @@ React web application that implements CPM and "Zagadnienie Pośrednika" algorith
 
 > [!IMPORTANT]
 > 25.03.2024 - Submission of a project
+
 > [!IMPORTANT]
 > 08.04.2024 - Raport of a project
