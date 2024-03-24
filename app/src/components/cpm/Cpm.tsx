@@ -14,7 +14,9 @@ import GraphEvents from "./GraphEvents";
 import LoadGraph from "./LoadGraph";
 import { theme } from "../../theme";
 import CustomTabPanel from "./CustomTabPanel";
+import CpmTable from "./CpmTable";
 import GanttCpm from "./GanttCpm";
+
 
 function Cpm() {
   const [nodes, setNodes] = useState<CriticalPath>({
@@ -83,7 +85,7 @@ function Cpm() {
           </AppBar>
 
           <CustomTabPanel value={value} index={0}>
-            {"tabela"}
+            <CpmTable nodes={nodes} />
           </CustomTabPanel>
 
           <CustomTabPanel value={value} index={1}>
