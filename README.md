@@ -15,8 +15,6 @@ React web application that implements CPM and "Zagadnienie Pośrednika" algorith
 | 23.03.2024 | [Visualize data as graph](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/6)| ✔ |
 | 23.03.2024 | [Visualize data as gantt chart](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/7)| ✔ |
 | 25.03.2024 | [Code review](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/8)| ✔ |
-| 08.04.2024 | [Refactorization and fixes](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/16)| ✖ |
-| 08.04.2024 | [Tests](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/9)| ✖ |
 | 08.04.2024 | [Raport](https://github.com/aizzy1337/operations_research_and_logistics_web_application/issues/17)| ✖ |
 
 > [!IMPORTANT]
